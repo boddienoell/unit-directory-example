@@ -1,0 +1,15 @@
+{
+  "name": "Unit Directory",
+  "description": "Boddie Noell Internal App",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "assets/icons/mstile-310x310.png",
+    "128": "assets/icons/Icon-76@2x.png"
+  },
+  "developer": {
+    "name": "Boddie Noell, Enterprises",
+    "url": "http://mybne.com"
+  },
+  "default_locale": "en",
+  "appcache_path": "/app.manifest"
+}
