@@ -1,0 +1,26 @@
+md-sidenav{
+  background-color: #fafafa;
+  md-content{
+    background-color: #fafafa;
+  }
+}
+
+md-tabs{
+  position: relative;
+}
+
+.moreContainer{
+  text-align: center;
+  margin: auto;
+  width: 90%;
+  height: 50px;
+  &:focus {outline:0;}
+}
+
+section.settings{
+  margin-top: 10px;
+}
+
+.browser{
+  .title{text-transform: uppercase;}
+}

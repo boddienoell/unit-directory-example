@@ -1,0 +1,33 @@
+
+header, md-toolbar.md-default-theme {
+  background-color: $color-main;
+  right: 0;
+  height: 45px;
+  max-height: 45px;
+  min-height: 45px;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  div{
+    &:focus {outline:0;}
+  }
+
+  img{
+    width: auto;
+    max-height: 35px;
+    display: inline-block;
+  }
+
+  h1{
+    font-size: 18px;
+  }
+
+  .filter-active{
+    border-bottom: rgb(6, 205, 6) 5px solid;
+    i{
+      margin-top: 5px;
+    }
+  }
+
+}
+

@@ -1,0 +1,120 @@
+<md-card ng-class="{ inactive: ( ! vm.unit.show ) }" >
+
+    <div class="bookmark" data-ng-click="vm.toggleFavorites( vm.idx )">
+
+        <i class="fa fa-bookmark-o bookmark" ng-show="!vm.unit.favorite"></i>
+        <i class="fa fa-bookmark bookmark" ng-show="vm.unit.favorite"></i>
+
+    </div>
+
+    <md-card-content>
+
+        <h2 class="md-title" ng-click="vm.toggleCard()">
+            <span ng-bind="::vm.unit.unit_name"></span> ( <span ng-bind="::vm.unit.unit_number"></span> )
+        </h2>
+
+        <div layout layout-align="center center" class="card-content">
+
+            <div flex="10" layout layout-align="center center" class="swipe-arrow">
+                <i class="fa fa-angle-left"  data-ng-click="vm.changeShowFrame('prev', $index)"></i>
+            </div>
+
+            <div flex="80" layout="column" layout-align="center center" class="address" ng-init="vm.unit.showFrame=0">
+                <div class="detail-frame" ng-show="vm.unit.showFrame == 0">
+                    <div>
+                        <span ng-bind="::vm.unit.unit_address"></span>
+                    </div>
+                    <div>
+                        <span ng-bind="::vm.unit.unit_city"></span>,
+                        <span ng-bind="::uv.unit.unit_state"></span>
+                        <span ng-bind="::vm.unit.unit_zip"></span>
+                    </div>
+                    <div>
+                        <span ng-bind="::vm.unit.unit_phone"></span>
+                        (<span ng-bind="::vm.unit.unit_speed_dail"></span>)
+                    </div>
+                </div>
+                <div class="detail-frame" ng-show="(vm.unit.showFrame == 1)">
+                    <md-list>
+                        <md-list-item class="md-1-line">
+                            <h3>VP</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['1'].name"></h4>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-1-line">
+                            <h3>Dir</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['2'].name"></h4>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-1-line">
+                            <h3>DM</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['3'].name"></h4>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <div class="detail-frame" ng-show="(vm.unit.showFrame == 2)">
+                    <md-list>
+                        <md-list-item class="md-1-line" ng-if="vm.details['4'].name">
+                            <h3>A & P</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['4'].name"></h4>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-1-line" ng-if="vm.details['5'].name">
+                            <h3>Tech</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['5'].name"></h4>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-1-line" ng-if="vm.details['6'].name">
+                            <h3>FE</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['6'].name"></h4>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-1-line" ng-if="vm.details['9'].name">
+                            <h3>Pay</h3>
+                            <div class="md-list-item-text">
+                                <h4 ng-bind="::vm.details['9'].name"></h4>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </div>
+            <div flex="10" layout layout-align="center center" class="swipe-arrow">
+                <i class="fa fa-angle-right" data-ng-click="vm.changeShowFrame('next', $index)"></i>
+            </div>
+
+        </div>
+
+    </md-card-content>
+
+    <div class="md-actions" layout="row" layout-align="center">
+
+        <md-button flex="50" class="md-raised" layout layout-align="center" data-ng-click="vm.callStore(unit.unit_phone)">
+
+            <i class="fa fa-phone"></i>
+
+            <md-tooltip>
+                Call Unit
+            </md-tooltip>
+
+        </md-button>
+
+        <md-button flex="50" class="md-raised" layout layout-align="center" data-ng-init="mapLink = vm.getDirections(unit.unit_geocode_latitude, unit.unit_geocode_longitude)" >
+            <a ng-href="{{vm.mapLink}}" target="_blank">
+                <i class="fa fa-car"></i>
+                <md-tooltip>
+                    Get Directions
+                </md-tooltip>
+            </a>
+        </md-button>
+
+    </div>
+
+</md-card>
+                

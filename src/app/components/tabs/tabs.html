@@ -1,0 +1,93 @@
+    <md-tabs  md-selected="0" md-autoselect md-dynamic-height="1" md-no-disconnect="1" md-swipe-content="1" md-no-ink="1">
+
+        <md-tab id="all">
+
+            <md-tab-label>All </md-tab-label>
+
+            <md-tab-body>
+                    <md-content layout layout-wrap>
+                        <bne-unit-card
+                                unit="unit"
+                                idx="$index"
+                                details="view.data.details[unit.unit_number]"
+                                data-ng-init="unit.show=0"
+                                ng-repeat="unit in filterdUnits = ( view.data.units  | filter: view.searchFilter |  orderBy : view.unit_number | limitTo: view.limitNumber )"
+                                flex="100"
+                                flex-gt-sm="50"
+                                >
+                        </bne-unit-card>
+                    </md-content>
+
+                <div ng-hide="view.noMore" ng-click="view.updateTotal()" layout layout-align="center" class="moreContainer">
+                    <div ng-hide="view.limitUpdating">Get 50 More</div>
+                    <md-progress-linear ng-show="view.limitUpdating" md-mode="indeterminate"></md-progress-linear>
+                </div>
+
+                <div ng-show="view.noMore" layout layout-align="center" class="moreContainer">
+                    <div>No More</div>
+                </div>
+
+            </md-tab-body>
+
+        </md-tab>
+
+        <md-tab id="favs">
+
+            <md-tab-label>Favs</md-tab-label>
+
+            <md-tab-body>
+              <md-content layout layout-wrap>
+                  <bne-unit-card
+                          unit="fav"
+                          details="view.data.details[fav.unit_number]"
+                          ng-repeat="fav in view.data.units  | filter : view.favoriteFilter | orderBy : unit_number "
+                          flex="100"
+                          flex-gt-sm="50"
+                          ></bne-unit-card>
+              </md-content>
+            </md-tab-body>
+
+        </md-tab>
+
+        <md-tab id="settings">
+
+            <md-tab-label>
+                <i class="fa fa-compass"></i>
+            </md-tab-label>
+
+            <md-tab-body>
+                <md-button class="md-raised md-primary" ng-click="view.getClosestStore()">
+                    Get Closest Store
+                </md-button>
+
+                <md-content layout layout-wrap>
+                    <bne-unit-card
+                            unit="unit"
+                            idx="$index"
+                            details="view.details[unit.unit_number]"
+                            data-ng-init="unit.show=0"
+                            ng-repeat="unit in filterdUnits = ( view.closestStores |  orderBy : unit_number | limitTo: view.limitNumber )"
+                            flex="100"
+                            flex-gt-sm="50"
+                            >
+                    </bne-unit-card>
+                </md-content>
+
+
+            </md-tab-body>
+
+        </md-tab>
+
+        <md-tab id="settings">
+
+            <md-tab-label>
+                <i class="fa fa-cogs"></i>
+            </md-tab-label>
+
+            <md-tab-body>
+                <bne-settings-view></bne-settings-view>
+            </md-tab-body>
+
+        </md-tab>
+
+    </md-tabs>

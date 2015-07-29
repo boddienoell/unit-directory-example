@@ -1,0 +1,18 @@
+CACHE MANIFEST
+
+
+CACHE:
+favicon.ico
+index.html
+
+
+NETWORK:
+http://*
+https://*
+*
+
+
+SETTINGS:
+prefer-online
+
+# hash: 74f70fc34072e72afd8ad480c59e5ed737d0b1132b6c0899fde8457def3f0514

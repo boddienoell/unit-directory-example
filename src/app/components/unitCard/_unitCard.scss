@@ -1,0 +1,138 @@
+md-card{
+  overflow: hidden;
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  transition: height 1s;
+  max-height: 200px;
+  height: 200px;
+
+  h2.md-title{
+    text-align: center;
+    font-size: 16px;
+    margin: 0;
+     &:focus {outline:0;}
+  }
+
+  .address{
+    font-size: 13px;
+  }
+
+  .md-actions{
+    margin: 0 5px;
+  }
+
+  .swipe-arrow{
+    font-size: 60px;
+    color: rgba(0,0,0,.2);
+
+    &:hover{
+      color: rgba(0,0,0,.6);
+    }
+
+  }
+  md-card-content {
+    padding-top: 7px;
+    height: 100px;
+
+  }
+
+  .card-content{
+    height: 95px;
+  }
+
+  p{
+    margin: 5px 0;
+  }
+
+  .md-button{
+
+    i{
+
+      font-size:30px;
+      padding-top: 7px;
+
+      &.fa-phone{
+        color: green;
+      }
+
+      &.fa-car{
+        color: orange;
+      }
+
+      &.fa-info{
+        color: darkblue;
+      }
+    }
+    
+
+  }
+
+  .bookmark{
+    position: absolute;
+    top: -3px;
+    right: 2px;
+    color: darkred;
+    height: 100%;
+    max-height: 50px;
+    width: 25px;
+
+    &:focus {outline:0;}
+
+    i{
+      padding-top: 0;
+      font-size: 30px;
+      &:focus {outline:0;}
+    }
+
+  }
+
+  &.inactive{
+    height: 50px;
+    max-height: 50px;
+    overflow: hidden;
+
+    .bookmark{
+      padding-top: 12px;
+      top: -10px;
+
+      i{
+        position: relative;
+        padding-top: 2px;
+        font-size: 30px;
+      }
+
+    }
+
+    md-card-content{
+      padding-top: 7px;
+
+      p, .address, .swipe-arrow{
+        display:none;
+      }
+
+    }
+
+    .md-actions{
+      display: none;
+    }
+
+    h2.md-title{
+      margin: 0;
+    }
+  }
+
+  md-list-item{
+    min-height: 20px;
+    h4,h3{
+      margin: 0 5px;
+    }
+    h3{
+      color: #777;
+    }
+    h4{
+      text-transform: capitalize;
+      white-space: pre;
+    }
+  }
+}

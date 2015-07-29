@@ -1,0 +1,45 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="filterNav" >
+
+    <md-content layout-padding>
+
+        <md-header>Filters: </md-header>
+
+        <form ng-submit="closeKeyBoard()">
+
+            <md-input-container>
+                <label for="unitNumber">Unit Number:</label>
+                <input type="number" id="unitNumber"  ng-model="view.searchFilter.unit_number" />
+            </md-input-container>
+
+            <md-input-container>
+                <label for="unitName">Unit Name:</label>
+                <input type="text" id="unitName"  ng-model="view.searchFilter.unit_name" />
+            </md-input-container>
+
+            <md-select placeholder="State" ng-model="view.searchFilter.unit_state">
+                <md-option value="NC">North Carolina</md-option>
+                <md-option value="VA">Virgina</md-option>
+                <md-option value="SC">South Carolina</md-option>
+                <md-option value="KY">Kentucky</md-option>
+            </md-select>
+
+            <md-select placeholder="City" ng-model="view.searchFilter.unit_city" ng-repeat="state in view.states" ng-show="(state == view.searchFilter.unit_state )">
+                <md-option ng-repeat="city in view.cities[state] | orderBy: unit_city" value="{{city.unit_city}}">{{city.unit_city}}</md-option>
+            </md-select>
+
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
+        </form>
+
+        <div layout="row">
+            <div flex="50">
+                <md-button ng-click="view.clearFilter()" layout layout-align="center center">Clear</md-button>
+            </div>
+            <div flex="50">
+                <md-button ng-click="view.close()" layout layout-align="center center">Apply</md-button>
+            </div>
+        </div>
+
+
+    </md-content>
+
+</md-sidenav>

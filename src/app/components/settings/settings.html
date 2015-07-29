@@ -1,0 +1,28 @@
+<md-divider></md-divider>
+<section layout="row" layout-align="center center" class="notifications" >
+    <md-switch ng-model="notifications" aria-label="Switch 1" ng-change="updateSettings()" ng-disabled="( device == 'andriod' )">
+        Notifications <span ng-bind="(notifications) ? 'On': 'Off'"></span>
+    </md-switch>
+</section>
+<md-divider></md-divider>
+<section layout="column" layout-align="start center" class="map settings">
+    <span class="md-raised title">Preferred Map Service</span>
+    <md-radio-group ng-model="map" ng-change="updateSettings()">
+        <md-radio-button value="google"> Google Maps </md-radio-button>
+        <md-radio-button value="apple"> Apple Maps </md-radio-button>
+        <md-radio-button value="bing"> Bing Maps :(</md-radio-button>
+    </md-radio-group>
+</section>
+<md-divider></md-divider>
+<section layout="column" layout-align="start center" class="browser settings">
+    <span class="md-raised title">Platform Used</span>
+    <md-radio-group ng-model="device" ng-change="updateSettings()">
+        <md-radio-button value="android"> Android </md-radio-button>
+        <md-radio-button value="mac"> Apple Product </md-radio-button>
+        <md-radio-button value="win"> Windows </md-radio-button>
+    </md-radio-group>
+</section>
+<md-divider></md-divider>
+<section layout="row" layout-align="center center" class=" settings">
+    <md-button class="md-raised md-warn" data-ng-click="clearFavorites()">Clear Favorites</md-button>
+</section>
